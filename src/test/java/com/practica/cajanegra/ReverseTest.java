@@ -1,20 +1,16 @@
 package com.practica.cajanegra;
 
 import com.cajanegra.SingleLinkedListImpl;
-import com.cajanegra.EmptyCollectionException;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.runner.RunWith;
 
-import java.util.NoSuchElementException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(org.junit.platform.runner.JUnitPlatform.class)
-public class Reverse {
+public class ReverseTest {
     SingleLinkedListImpl<Character> list;
 
     @DisplayName("Case reverse on empty list")
