@@ -17,9 +17,9 @@ public class AddTests {
             return false;
         else
         {
-            for(int i = 0; i < s1.length(); i++)
+            for(int i = 1; i <= s1.length(); i++)
             {
-                if(testList.getAtPos(i).toCharArray()[0] != s1.toCharArray()[i])
+                if(testList.getAtPos(i).toCharArray()[0] != s1.toCharArray()[i - 1])
                     return false;
             }
         }
@@ -40,7 +40,6 @@ public class AddTests {
     @ParameterizedTest()
     @MethodSource("addAtPos_validTestsSource")
     void addAtPos(int position, String elem,String result){
-        int size = testList.size();
         testList.addAtPos(elem,position);
         Assertions.assertTrue(compareString(result));
 
@@ -59,29 +58,29 @@ public class AddTests {
                 arguments(2,"Y","AYBCDEFG"),
                 arguments(2,"Z","AZBCDEFG"),
 
-                arguments(4,"A","ABCDAEFG"),
-                arguments(4,"B","ABCDBEFG"),
-                arguments(4,"M","ABCDMEFG"),
-                arguments(4,"Y","ABCDYEFG"),
-                arguments(4,"Z","ABCDZEFG"),
+                arguments(4,"A","ABCADEFG"),
+                arguments(4,"B","ABCBDEFG"),
+                arguments(4,"M","ABCMDEFG"),
+                arguments(4,"Y","ABCYDEFG"),
+                arguments(4,"Z","ABCZDEFG"),
 
-                arguments(6,"A","ABCDEFAG"),
-                arguments(6,"B","ABCDEFBG"),
-                arguments(6,"M","ABCDEFMG"),
-                arguments(6,"Y","ABCDEFYG"),
-                arguments(6,"Z","ABCDEFZG"),
-
-                arguments(7,"A","ABCDEFGA"),
-                arguments(7,"B","ABCDEFGB"),
-                arguments(7,"M","ABCDEFGM"),
-                arguments(7,"Y","ABCDEFGY"),
-                arguments(7,"Z","ABCDEFGZ"),
+                arguments(7,"A","ABCDEFAG"),
+                arguments(7,"B","ABCDEFBG"),
+                arguments(7,"M","ABCDEFMG"),
+                arguments(7,"Y","ABCDEFYG"),
+                arguments(7,"Z","ABCDEFZG"),
 
                 arguments(8,"A","ABCDEFGA"),
                 arguments(8,"B","ABCDEFGB"),
                 arguments(8,"M","ABCDEFGM"),
                 arguments(8,"Y","ABCDEFGY"),
-                arguments(8,"Z","ABCDEFGZ")
+                arguments(8,"Z","ABCDEFGZ"),
+
+                arguments(9,"A","ABCDEFGA"),
+                arguments(9,"B","ABCDEFGB"),
+                arguments(9,"M","ABCDEFGM"),
+                arguments(9,"Y","ABCDEFGY"),
+                arguments(9,"Z","ABCDEFGZ")
 
         );
     }
@@ -109,7 +108,6 @@ public class AddTests {
     @ParameterizedTest()
     @MethodSource("addAtPos_invElemTestsSource")
     void addAtPosInvElem(int position, String elem,String result){
-        int lastsize = testList.size();
         testList.addAtPos(elem,position);
         Assertions.assertTrue(compareString(result));
 
@@ -122,17 +120,17 @@ public class AddTests {
                 arguments(2,"@","A@BCDEFG"),
                 arguments(2,"[","A[BCDEFG"),
 
-                arguments(4,"@","ABCD@EFG"),
-                arguments(4,"[","ABCD[EFG"),
+                arguments(4,"@","ABC@DEFG"),
+                arguments(4,"[","ABC[DEFG"),
 
-                arguments(6,"@","ABCDEF@G"),
-                arguments(6,"[","ABCDEF[G"),
-
-                arguments(7,"@","ABCDEFG@"),
-                arguments(7,"[","ABCDEFG["),
+                arguments(7,"@","ABCDEF@G"),
+                arguments(7,"[","ABCDEF[G"),
 
                 arguments(8,"@","ABCDEFG@"),
-                arguments(8,"[","ABCDEFG[")
+                arguments(8,"[","ABCDEFG["),
+
+                arguments(9,"@","ABCDEFG@"),
+                arguments(9,"[","ABCDEFG[")
         );
     }
 
@@ -147,7 +145,6 @@ public class AddTests {
     void addFirst(String elem,String result){
         testList.addFirst(elem);
         Assertions.assertTrue(compareString(result));
-
     }
     static Stream<Arguments> addFirst_validTestsSource(){
         return Stream.of(
@@ -275,7 +272,6 @@ public class AddTests {
     @ParameterizedTest()
     @MethodSource("addNTimes_invElemTestsSource")
     void addNTimesInvElem(int position, String elem,String result){
-        int lastsize = testList.size();
         testList.addAtPos(elem,position);
         Assertions.assertTrue(compareString(result));
 
