@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 public class IsSubListTest {
     SingleLinkedListImpl<Character> list;
 
-    @ParameterizedTest(name = "Case subLIst is an empty list for {0} size")
+    @ParameterizedTest(name = "Case subList is an empty list for {0} size")
     @CsvSource(value = {
             "0",
             "1",
