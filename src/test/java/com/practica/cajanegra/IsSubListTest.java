@@ -14,7 +14,8 @@ public class IsSubListTest {
             "1",
             "5",
             "9",
-            "10"
+            "10",
+            "11"
     })
     void TestEmptySubList(int size){
         if (size == 0)
@@ -27,6 +28,8 @@ public class IsSubListTest {
             list = new SingleLinkedListImpl<>('A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J');
         else if (size == 10)
             list = new SingleLinkedListImpl<>('A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K');
+        else if (size == 11)
+            list = new SingleLinkedListImpl<>('A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L');
 
         assertEquals(0, list.isSubList(new SingleLinkedListImpl<Character>()));
     }
@@ -37,10 +40,11 @@ public class IsSubListTest {
             "1",
             "5",
             "9",
-            "10"
+            "10",
+            "11"
     })
     void TestSubList(int position){
-        list = new SingleLinkedListImpl<Character>('A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K');
+        list = new SingleLinkedListImpl<Character>('A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L');
         SingleLinkedListImpl<Character> subList = new SingleLinkedListImpl<Character>();
 
         if (position == 0)
@@ -52,7 +56,9 @@ public class IsSubListTest {
         else if (position == 9)
             subList = new SingleLinkedListImpl<>('J', 'K');
         else if (position == 10)
-            subList = new SingleLinkedListImpl<>('K');
+            subList = new SingleLinkedListImpl<>('K', 'L');
+        else if (position == 11)
+            subList = new SingleLinkedListImpl<>('L');
 
         assertEquals(position, list.isSubList(subList));
     }
@@ -63,7 +69,8 @@ public class IsSubListTest {
             "1",
             "5",
             "9",
-            "10"
+            "10",
+            "11"
     })
     void TestNoSubList(int size){
         SingleLinkedListImpl<Character> subList = new SingleLinkedListImpl<Character>('A', 'C', 'E');
@@ -78,6 +85,8 @@ public class IsSubListTest {
             list = new SingleLinkedListImpl<>('A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J');
         else if (size == 10)
             list = new SingleLinkedListImpl<>('A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K');
+        else if (size == 11)
+            list = new SingleLinkedListImpl<>('A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L');
 
         assertEquals(-1, list.isSubList(subList));
     }
@@ -88,7 +97,8 @@ public class IsSubListTest {
             "1",
             "5",
             "9",
-            "10"
+            "10",
+            "11"
     })
     void TestNullSubList(int size){
         if (size == 0)
@@ -101,6 +111,8 @@ public class IsSubListTest {
             list = new SingleLinkedListImpl<>('A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J');
         else if (size == 10)
             list = new SingleLinkedListImpl<>('A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K');
+        else if (size == 11)
+            list = new SingleLinkedListImpl<>('A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L');
 
         assertEquals(0, list.isSubList(null));
     }
